@@ -7,21 +7,26 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Run mini smoke
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install numpy matplotlib
+
+      - name: Run mini smoke (N-P)
         run: |
           python scripts/run_C1_NP_min.py
-          python - <<'PY'
-          import json, pathlib, matplotlib.pyplot as plt
-          data = json.load(open('outputs/C1/metrics.json','r',encoding='utf-8'))
-          # quick plot inline (same as script)
-          PY
           python scripts/plot_C1_2_min.py
+
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
