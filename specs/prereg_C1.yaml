@@ -1,0 +1,7 @@
+version: "1.0"
+status: "locked"
+thresholds:
+  CR_min: 0.70
+  SP_min: 0.60
+  VS_band: [0.30, 0.70]
+  GEN_gain_min: 0.10

@@ -1,0 +1,15 @@
+meta:
+  version: "1.0"
+window:
+  size: 128
+  step: 32
+cluster:
+  method: "kmeans"
+  k_select: "bic"
+  k_range: [2, 20]
+thresholds:
+  te_percentile: 90
+  inclusion_overlap: 0.60
+  leadlag_window_frac: 0.25
+confidence:
+  node_silhouette_min: 0.50

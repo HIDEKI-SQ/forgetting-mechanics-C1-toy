@@ -1,0 +1,10 @@
+svd_energy_drop:
+  tau: 0.90
+  ref_percentiles: [5, 95]
+transfer_entropy:
+  lag: [1, 2]
+  theta_percentile: 90
+timescale_bins:
+  short: "<p33"
+  mid: "p33-p66"
+  long: ">p66"
